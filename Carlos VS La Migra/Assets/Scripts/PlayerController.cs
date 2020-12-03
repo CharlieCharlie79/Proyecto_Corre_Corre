@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpforce;
     public bool isGrounded = false;
     public Animator animator;
+    public GameObject playerParticle;
 
     private Rigidbody2D rb2d;
 
@@ -45,29 +46,40 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);         
         }
+      
     }
 
         void Jump()
-    {
-        if(Input.GetButtonDown("Jump") && isGrounded == true)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpforce), ForceMode2D.Impulse);
-            if (isGrounded == true)
+            if(Input.GetButtonDown("Jump") && isGrounded == true)
             {
-                animator.SetBool("IsJumping", true);                      
-            }
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpforce), ForceMode2D.Impulse);
+                if (isGrounded == true)
+                {
+                    animator.SetBool("IsJumping", true);                      
+                }
         
+             }
+
+            //else if (Input.GetButtonDown("Jump") && isGrounded == false)
+            else if (isGrounded == false)
+            {
+            // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 0f), ForceMode2D.Impulse);
+                if (isGrounded == false && speed > 0.1f)
+                {
+                    animator.SetBool("IsJumping", false);
+                }
+
+            }
         }
 
-        //else if (Input.GetButtonDown("Jump") && isGrounded == false)
-        else if (isGrounded == false)
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Destroy")
         {
-           // gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 0f), ForceMode2D.Impulse);
-            if (isGrounded == false && speed > 0.1f)
-            {
-                animator.SetBool("IsJumping", false);
-            }
-
+            Debug.Log("Particles");
+            Instantiate(playerParticle, transform.position, Quaternion.identity);
         }
     }
+    
 }
