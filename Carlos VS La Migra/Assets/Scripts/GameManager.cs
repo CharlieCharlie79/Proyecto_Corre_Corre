@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject DeadScreen;
     public  bool GameIsRunning = false;
 
-
+    
 
     public void GameEnd()
     {
@@ -16,5 +16,10 @@ public class GameManager : MonoBehaviour
         GameIsRunning = true;
 
         Debug.Log("GameOver");
+    }
+
+    public void Repeat()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
