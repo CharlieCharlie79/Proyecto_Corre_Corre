@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
 
@@ -10,14 +11,16 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false;
     public Animator animator;
     public GameObject playerParticle;
-
     private Rigidbody2D rb2d;
 
+    public GameManager ScreenEnd;
+
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -77,9 +80,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Destroy")
         {
-            Debug.Log("Particles");
+            //Debug.Log("Particles");
             Instantiate(playerParticle, transform.position, Quaternion.identity);
+            ScreenEnd.GameEnd();
         }
-    }
-    
+
+    }      
 }

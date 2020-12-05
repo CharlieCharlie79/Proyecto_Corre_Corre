@@ -10,6 +10,7 @@ TagManager:
   - Destroy
   - character
   - Taco
+  - ShowOnFinish
   layers:
   - Default
   - TransparentFX
