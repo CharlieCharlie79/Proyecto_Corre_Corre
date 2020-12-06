@@ -82,6 +82,10 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Particles");
             Instantiate(playerParticle, transform.position, Quaternion.identity);
+
+            //Play death effect sound
+            FindObjectOfType<AudioManager>().Play("Death");
+
             ScreenEnd.GameEnd();
         }
 
