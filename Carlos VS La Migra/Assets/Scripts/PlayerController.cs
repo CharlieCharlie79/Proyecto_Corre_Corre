@@ -89,5 +89,14 @@ public class PlayerController : MonoBehaviour
             ScreenEnd.GameEnd();
         }
 
-    }      
+        else if (collision.gameObject.tag == "Enemy")
+        {
+          FindObjectOfType<Hearth_System>().TakeDamage();
+        }
+        
+
+    }
+
+
+
 }

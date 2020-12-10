@@ -12,7 +12,7 @@ public class Enemy_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MoveRight)
+        if (MoveRight)
         {
             transform.Translate(2 * Time.deltaTime * speed, 0, 0);
             //Esto cambia la posicion del sprite
@@ -28,9 +28,9 @@ public class Enemy_Movement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trig)
     {
-        if(trig.gameObject.CompareTag("Turn"))
+        if (trig.gameObject.CompareTag("Turn"))
         {
-            if(MoveRight)
+            if (MoveRight)
             {
                 MoveRight = false;
             }
@@ -41,4 +41,8 @@ public class Enemy_Movement : MonoBehaviour
         }
     }
 
+    
+
 }
+     
+

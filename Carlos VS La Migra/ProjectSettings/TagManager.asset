@@ -11,6 +11,7 @@ TagManager:
   - character
   - Taco
   - ShowOnFinish
+  - Enemy
   layers:
   - Default
   - TransparentFX
