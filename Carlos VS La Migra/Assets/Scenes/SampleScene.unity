@@ -1480,6 +1480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 193974610}
   cameraDistance: 70
+  minimumBoundary: {x: -13, y: 0}
+  maximumBoundary: {x: 43, y: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
